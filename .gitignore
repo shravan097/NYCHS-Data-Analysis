@@ -1,5 +1,8 @@
 shravan/bin
 shravan/include
 shravan/lib
+shravan/etc
 shravan/pip-selfcheck.json
 shravan/.Python
+shravan/share
+/__pycache__
