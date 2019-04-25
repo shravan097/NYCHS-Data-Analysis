@@ -45,7 +45,7 @@ import pandas as pd
 
 # SAT Score of 2012 form nyc open data
 SAT_LINK = "https://data.cityofnewyork.us/resource/f9bf-2cp4.csv"
-def get_SATScores():
+def get_SATScores(): 
 	return pd.read_csv(SAT_LINK)
 
 # Demographic Data by Zip Code
@@ -55,10 +55,21 @@ def get_Demographic():
 
 
 
+def get_Graduation(filterBy):
+	if filterBy=='district':
+		return pd.read_csv('https://data.cityofnewyork.us/api/views/fq9e-fd84/rows.csv?accessType=DOWNLOAD')
+	elif filterBy=='borough':
+		return pd.read_csv('https://data.cityofnewyork.us/api/views/k2ic-km9j/rows.csv?accessType=DOWNLOAD')
+	elif filterBy=='school':
+		return pd.read_csv('https://data.cityofnewyork.us/api/views/35ey-ieq4/rows.csv?accessType=DOWNLOAD')
+	else:
+		raise NameError("filterBy types invalid\nfilterby can be 'district','borough' or 'school'")
 
 
-
-
+def get_SchoolsByDistrict(districtNumber):
+	schools = get_SATScores()
+	schools['dbn'] = list(map(lambda x: int(x[:2]),schools['dbn']))
+	return list(schools[schools['dbn']==districtNumber]['school_name'])
 
 
 

@@ -5,4 +5,5 @@ shravan/etc
 shravan/pip-selfcheck.json
 shravan/.Python
 shravan/share
+shravan/.ipynb_checkpoints/
 /__pycache__
