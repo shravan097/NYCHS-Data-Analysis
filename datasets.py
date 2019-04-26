@@ -56,12 +56,21 @@ def get_Demographic():
 
 
 def get_Graduation(filterBy):
+	"""
+		filterBy:
+			-district
+			-borough
+			-school
+			-demographic
+	"""
 	if filterBy=='district':
 		return pd.read_csv('https://data.cityofnewyork.us/api/views/fq9e-fd84/rows.csv?accessType=DOWNLOAD')
 	elif filterBy=='borough':
 		return pd.read_csv('https://data.cityofnewyork.us/api/views/k2ic-km9j/rows.csv?accessType=DOWNLOAD')
 	elif filterBy=='school':
 		return pd.read_csv('https://data.cityofnewyork.us/api/views/35ey-ieq4/rows.csv?accessType=DOWNLOAD')
+	elif filterBy=='demographic':
+		return pd.read_csv('https://data.cityofnewyork.us/api/views/qk7d-gecv/rows.csv?accessType=DOWNLOAD')
 	else:
 		raise NameError("filterBy types invalid\nfilterby can be 'district','borough' or 'school'")
 
