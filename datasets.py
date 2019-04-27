@@ -80,5 +80,9 @@ def get_SchoolsByDistrict(districtNumber):
 	schools['dbn'] = list(map(lambda x: int(x[:2]),schools['dbn']))
 	return list(schools[schools['dbn']==districtNumber]['school_name'])
 
+def get_SchoolGrade():
+	df = pd.read_csv('https://data.cityofnewyork.us/api/views/ffnc-f3aa/rows.csv?accessType=DOWNLOAD')
+	return df[df['SCHOOL LEVEL*']=='High School'][['DBN','DISTRICT','SCHOOL','2009-2010 OVERALL GRADE']]
+
 
 
