@@ -46,7 +46,7 @@ import pandas as pd
 # SAT Score of 2012 form nyc open data
 SAT_LINK_2012 = "https://data.cityofnewyork.us/resource/f9bf-2cp4.csv"
 SAT_LINK_2010 = 'https://data.cityofnewyork.us/resource/rt5r-ie69.csv'
-SAT_LINK_2015 = 'https://doc-0s-as-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/5pmb8ialjtku2ljqst4vbm5ldnqvdhnl/1557410400000/17909854978246036216/*/1v9R8nSZ5wnzFMt7i2AFk0qPw7tuPmXwZ?e=download'
+SAT_LINK_2015 = 'https://drive.google.com/uc?export=download&id=1v9R8nSZ5wnzFMt7i2AFk0qPw7tuPmXwZ'
 def get_SATScores(year): 
 	if year == '2010':
 		return pd.read_csv(SAT_LINK_2010)
