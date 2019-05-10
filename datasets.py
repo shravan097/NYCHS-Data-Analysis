@@ -83,7 +83,7 @@ def get_Graduation(filterBy):
 
 
 def get_SchoolsByDistrict(districtNumber):
-	schools = get_SATScores()
+	schools = get_SATScores('2012')
 	schools['dbn'] = list(map(lambda x: int(x[:2]),schools['dbn']))
 	return list(schools[schools['dbn']==districtNumber]['school_name'])
 
