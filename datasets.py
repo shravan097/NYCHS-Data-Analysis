@@ -44,9 +44,16 @@ import pandas as pd
 ## Return panda data frame
 
 # SAT Score of 2012 form nyc open data
-SAT_LINK = "https://data.cityofnewyork.us/resource/f9bf-2cp4.csv"
-def get_SATScores(): 
-	return pd.read_csv(SAT_LINK)
+SAT_LINK_2012 = "https://data.cityofnewyork.us/resource/f9bf-2cp4.csv"
+SAT_LINK_2010 = 'https://data.cityofnewyork.us/resource/rt5r-ie69.csv'
+SAT_LINK_2015 = 'https://drive.google.com/uc?export=download&id=1v9R8nSZ5wnzFMt7i2AFk0qPw7tuPmXwZ'
+def get_SATScores(year): 
+	if year == '2010':
+		return pd.read_csv(SAT_LINK_2010)
+	if year == '2012':
+		return pd.read_csv(SAT_LINK_2012)
+	if year =='2015':
+		return pd.read_csv(SAT_LINK_2015)
 
 # Demographic Data by Zip Code
 DEMOGRAPHIC_LINK = "https://data.cityofnewyork.us/resource/kku6-nxdu.csv"
@@ -76,7 +83,7 @@ def get_Graduation(filterBy):
 
 
 def get_SchoolsByDistrict(districtNumber):
-	schools = get_SATScores()
+	schools = get_SATScores('2012')
 	schools['dbn'] = list(map(lambda x: int(x[:2]),schools['dbn']))
 	return list(schools[schools['dbn']==districtNumber]['school_name'])
 
